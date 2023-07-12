@@ -1,0 +1,49 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  padding: 9px 16px;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.avatar {
+  width: 34px;
+  height: 40px;
+  margin-right: 12px;
+  border-radius: 50%;
+}
+
+.info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: calc(100% - 46px);
+}
+.userNameWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.userName {
+  font-size: 1.6rem;
+  font-weight: 600;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.check {
+  color: rgb(32, 213, 236);
+  margin-left: 8px;
+}
+
+.name {
+  font-size: 1.4rem;
+  color: rgba(0, 0, 0, 0.5);
+  letter-spacing: 0.093px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

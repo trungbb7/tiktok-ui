@@ -1,0 +1,72 @@
+.wrapper {
+  box-sizing: border-box;
+}
+
+.menu-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 8px 10px 16px;
+  line-height: 21px;
+  color: rgb(22, 24, 35);
+  font-size: 1.6rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+  &.language-style {
+    font-family: 'TikTokDisplayFont', sans-serif;
+    font-weight: 400;
+  }
+}
+
+// Arrow
+.arrow {
+  position: absolute;
+  border: 10px solid;
+  border-color: transparent transparent #fff;
+  top: -19px;
+  right: 20px;
+}
+
+// Header Menu
+
+.header-submenu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.header-btn {
+  width: 20px;
+  height: 20px;
+  margin-left: 28px;
+}
+
+.header-icon {
+  font-size: 2rem;
+  color: rgba(22, 24, 35, 0.5);
+}
+
+.header-title {
+  position: absolute;
+  font-weight: 600;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.menuPoper-wrapper {
+  position: relative;
+  min-width: 226px;
+}
+
+.menu-wrapper {
+  padding: 8px 0;
+}
+
+.borderTop {
+  border-top: 1px solid rgba(22, 24, 35, 0.12);
+}

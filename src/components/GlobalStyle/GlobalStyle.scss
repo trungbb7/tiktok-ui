@@ -1,6 +1,48 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 :root {
+  --primary-color: #ff2c55;
+  --white-color: #fff;
+  --black-color: #000;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #f1f1f2;
+  border-radius: 8px;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/Fonts/TikTokFont-Regular.woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/Fonts/TikTokFont-Semibold.woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: TikTokFont;
+  src: url('/assets/Fonts/TikTokFont-Bold.woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: TikTokDisplayFont;
+  src: url('/assets/Fonts/TikTokDisplayFont-Bold.woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: TikTokDisplayFont;
+  src: url('/assets/Fonts/TikTokDisplayFont-Regular.woff2');
+  font-weight: 400;
 }
 
 * {
@@ -15,7 +57,43 @@ html {
 
 body {
   text-rendering: optimizeSpeed;
-  font-family: 'Roboto', sans-serif;
+  font-family: TikTokFont, sans-serif;
   line-height: 1.5;
   font-size: 1.6rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+
+.tippy-box[data-theme~='tooltip'] {
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+  background-color: rgba(84, 84, 84, 0.92);
+  color: var(--white-color);
+  padding: 8px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid;
+    border-color: transparent transparent rgba(84, 84, 84, 0.92);
+    z-index: 999;
+  }
 }
