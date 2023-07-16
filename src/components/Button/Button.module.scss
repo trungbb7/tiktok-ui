@@ -40,11 +40,13 @@
 }
 
 .primary {
-  min-width: 100px;
+  min-width: 102px;
   min-height: 36px;
   border-radius: 4px;
   padding: 6px 9px;
+  font-size: 1.6rem;
   line-height: 21px;
+  font-weight: 700;
   color: var(--white-color);
   background-color: var(--primary-color);
 
