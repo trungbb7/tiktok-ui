@@ -11,15 +11,19 @@ import { dataMenuItemLogout, dataMenuItemLogin } from '~/assets/data/dataMenu';
 import { PlusIcon, MessageIcon, InboxIcon, MenuIcon } from '~/assets/Icons';
 import Img from '~/components/Img';
 import Search from '../Search';
+import { Link } from 'react-router-dom';
 const cx = classNames.bind(style);
 
 function Header() {
   const [login, setLogin] = useState(true);
+
   return (
     <header className={cx('wrapper')}>
-      <div className={cx('logo')}>
-        <img src={images.logo.default} alt="logo" />
-      </div>
+      <Link to="/">
+        <div className={cx('logo')}>
+          <img src={images.logo.default} alt="logo" />
+        </div>
+      </Link>
 
       <Search />
 
@@ -28,7 +32,7 @@ function Header() {
           outline
           leftIcon={<PlusIcon width="20" height="20" viewBox="0 0 16 16" />}
           onClick={() => {
-            alert('Trung dap chai');
+            alert('Tính năng đang phát triển!');
           }}>
           Tải lên
         </Button>
@@ -46,6 +50,7 @@ function Header() {
               </div>
             </Tippy>
             <Menu
+              hideOnClick={false}
               element={
                 <div className={cx('more-menu')}>
                   <Img

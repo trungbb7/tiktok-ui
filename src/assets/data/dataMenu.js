@@ -1,4 +1,5 @@
 import Switch from '~/components/Switch';
+import languageCodes from './languageCodes';
 import {
   ProfileIcon,
   FavouriteIcon,
@@ -15,18 +16,13 @@ const dataMenuItemLogout = [
   {
     title: 'Tiếng Việt',
     icon: <LanguageIcon width="20" height="20" viewBox="0 0 48 48" />,
-    children: [
-      {
+    children: languageCodes.map((item) => {
+      return {
         type: 'language',
-        title: 'Tiếng Việt',
-        englishTranslate: 'VietNamese'
-      },
-      {
-        type: 'language',
-        title: 'English',
-        englishTranslate: 'Enlish'
-      }
-    ]
+        name: item.name,
+        nativeName: item.nativeName
+      };
+    })
   },
   {
     title: 'Phản hồi và trợ giúp',

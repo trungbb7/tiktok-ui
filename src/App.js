@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
 
@@ -6,8 +7,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         {publicRoutes.map((route, index) => {
-          const Layout = route.layout;
-          const Page = route.component;
+          const Layout = route.layout || Fragment;
+          const Page = route.component || Fragment;
           return (
             <Route
               key={index}

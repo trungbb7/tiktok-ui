@@ -65,6 +65,9 @@
 
 .menu-wrapper {
   padding: 8px 0;
+  max-height: min(100vh - 96px - 60px, 760px);
+  overflow: auto scroll;
+  // overflow: overlay;
 }
 
 .borderTop {

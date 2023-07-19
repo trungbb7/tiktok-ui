@@ -4,6 +4,7 @@
 }
 
 .container {
+  margin-top: var(--headerHeight);
   display: flex;
   flex: 1;
 }

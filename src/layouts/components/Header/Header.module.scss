@@ -1,10 +1,15 @@
 .wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
-  height: 60px;
+  height: var(--headerHeight);
   padding: 0 24px 0 16px;
   box-shadow: 0 1px #e4e4e4;
   align-items: center;
   justify-content: space-between;
+  background-color: var(--white-color);
 }
 
 .logo {

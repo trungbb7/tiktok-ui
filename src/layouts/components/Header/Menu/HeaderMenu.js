@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
+import PropTypes from 'prop-types';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -15,5 +16,10 @@ function HeaderMenu({ data, onBack }) {
     </header>
   );
 }
+
+HeaderMenu.propTypes = {
+  data: PropTypes.object,
+  onBack: PropTypes.func
+};
 
 export default HeaderMenu;
