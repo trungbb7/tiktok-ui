@@ -1,10 +1,18 @@
 .wrapper {
+  // position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .container {
+  position: relative;
   margin-top: var(--headerHeight);
   display: flex;
+  flex: 1;
+}
+
+.content {
+  // overflow: auto scroll;
+  // scroll-behavior: contain;
   flex: 1;
 }

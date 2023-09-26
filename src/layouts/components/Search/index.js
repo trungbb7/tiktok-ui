@@ -8,11 +8,13 @@ import { SearchIcon, LoadingIcon } from '~/assets/Icons';
 import { ClearIcon } from '~/assets/Icons';
 import styles from './Search.module.scss';
 import { useDebounce } from '~/hook';
+import { searchService, searchGuessService } from '~/services';
 
 const cx = classNames.bind(styles);
 
 function Search() {
   const [dataAccountItems, setDataAccountItems] = useState([]);
+  const [dataGuessItems, setDataGuessItems] = useState([]);
   const [value, setValue] = useState('');
   const [focus, setFocus] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -35,8 +37,12 @@ function Search() {
     });
   };
   const handleFocus = () => {
-    setFocus(true);
-    searchRef.current.classList.add(cx('focus'));
+    (async function () {
+      setFocus(true);
+      searchRef.current.classList.add(cx('focus'));
+      const result = await searchGuessService();
+      setDataGuessItems(result);
+    })();
   };
 
   const handleBlur = (e) => {
@@ -52,44 +58,35 @@ function Search() {
   };
 
   useEffect(() => {
-    let url = `https://www.tiktok.com/api/search/general/preview/?aid=1988&app_language=vi&app_name=tiktok_web&browser_language=vi-VN&browser_name=Mozilla&browser_online=true&browser_platform=Win32&browser_version=5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36&channel=tiktok_web&cookie_enabled=true&device_id=7248603869680797185&device_platform=web_pc&focus_state=true&from_page=fyp&history_len=2&is_fullscreen=false&is_page_visible=true&keyword=${encodeURIComponent(
-      debounce
-    )}&os=windows&priority_region=&referer=&region=VN&screen_height=864&screen_width=1536&tz_name=Asia/Bangkok&webcast_language=vi-VN`;
-    let objdata = 'sug_list';
-    if (debounce.length === 0) {
-      objdata = 'data';
-      url =
-        'https://www.tiktok.com/api/search/suggest/guide/?aid=1988&app_language=vi-VN&app_name=tiktok_web&browser_language=vi-VN&browser_name=Mozilla&browser_online=true&browser_platform=Win32&browser_version=5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36&channel=tiktok_web&cookie_enabled=true&device_id=7248603869680797185&device_platform=web_pc&focus_state=true&from_group_id=7248630985003175174&from_page=fyp&history_len=2&history_list_v2=%255B%255D&is_fullscreen=false&is_page_visible=true&os=windows&priority_region=&referer=&region=VN&req_source=web_blank_page&screen_height=864&screen_width=1536&tz_name=Asia/Bangkok&webcast_language=vi-VN';
-    }
-    clearRef.current.style.display = 'none';
-    loadingRef.current.style.display = 'block';
-    setLoading(true);
-    fetch(url)
-      .then((res) => res.json())
-      .then((res) => {
-        setDataAccountItems(res[objdata]);
+    if (debounce.length > 0) {
+      (async function () {
+        clearRef.current.style.display = 'none';
+        loadingRef.current.style.display = 'block';
+        setLoading(true);
+        const result = await searchService(debounce);
+        setDataAccountItems(result);
         setLoading(false);
-        if (debounce.length > 0) {
-          clearRef.current.style.display = 'block';
-          searchRef.current.classList.add(cx('hover'));
-        }
+        clearRef.current.style.display = 'block';
         loadingRef.current.style.display = 'none';
-      })
-      .catch((err) => {
-        console.error(err);
-        setDataAccountItems([]);
-      });
+        searchRef.current.classList.add(cx('hover'));
+      })();
+    }
 
     // eslint-disable-next-line
   }, [debounce]);
 
   useEffect(() => {
-    console.log('counter');
     if (searchRef.current) {
       if (value.length > 0) {
         searchRef.current.classList.add(cx('hover'));
       } else {
-        searchRef.current.classList.remove(cx('hover'));
+        (async function () {
+          searchRef.current.classList.remove(cx('hover'));
+          clearRef.current.style.display = 'none';
+          let result = await searchGuessService();
+
+          setDataGuessItems(result);
+        })();
       }
     }
   }, [value]);
@@ -97,7 +94,7 @@ function Search() {
   return (
     <div>
       <HeadlessTippy
-        visible={focus && !loading}
+        visible={(value === 0 || !loading) && focus}
         placement="bottom"
         interactive={true}
         render={(attris) => (
@@ -105,7 +102,6 @@ function Search() {
             <PopperWrapper className={cx('popper-wrapper')}>
               {value.length > 0 ? (
                 <Fragment>
-                  {/* <div className={cx('accountLabel')}>Tài khoản</div> */}
                   {dataAccountItems.map((accountItem, index) => {
                     if (accountItem.word) {
                       return '';
@@ -132,16 +128,16 @@ function Search() {
                       </Fragment>
                     );
                   })}
+                  <SearchResultItem content={`Xem tất cả kết quả dành cho "${debounce}"`} />
                 </Fragment>
               ) : (
                 <Fragment>
                   <p className={cx('guessLabel')}>Bạn có thể thích</p>
-                  {dataAccountItems.map((data, index) => {
+                  {dataGuessItems.map((data, index) => {
                     return (
                       <SearchResultItem
                         type="guess"
                         key={index}
-                        // icon={data.icon}
                         text={data.word}
                         wordType={data.word_type}
                       />

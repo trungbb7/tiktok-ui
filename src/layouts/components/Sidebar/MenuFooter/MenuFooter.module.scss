@@ -1,0 +1,40 @@
+.menu-footer {
+  position: relative;
+  padding-top: 16px;
+  padding-left: 8px;
+  margin-bottom: 40px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 8px;
+    right: 8px;
+    height: 1px;
+    background-color: rgba(22, 24, 35, 0.12);
+    transform: scaleY(0.5);
+  }
+}
+
+.footerItem-container {
+  margin-bottom: 8px;
+  line-height: 21px;
+}
+
+.footer-item {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.161px;
+  color: rgba(22, 24, 35, 0.5);
+  margin-top: 6px;
+  margin-right: 6px;
+
+  &.more {
+    cursor: pointer;
+  }
+}
+
+a.footer-item:hover {
+  text-decoration: underline;
+}

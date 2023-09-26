@@ -3,7 +3,8 @@
   align-items: center;
   width: 100%;
   padding: 9px 16px;
-  color: var(--black-color);
+  color: var(--text-color);
+  cursor: pointer;
 
   &:hover {
     background-color: rgba(22, 24, 35, 0.03);
@@ -56,7 +57,7 @@
 }
 
 .check {
-  color: rgb(32, 213, 236);
+  color: #20d5ec;
   margin-left: 8px;
 }
 
@@ -85,8 +86,8 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  padding-left: 8px;
   padding-right: 12px;
+  padding-left: 8px;
 }
 
 .search-wrapper {
@@ -103,4 +104,23 @@
   align-items: center;
   justify-content: space-between;
   font-weight: 600;
+}
+
+.more-wrapper {
+  padding: 15px 16px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.more-title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.03px;
+  line-height: 21px;
+  color: var(--text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

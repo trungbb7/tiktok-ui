@@ -64,7 +64,7 @@ $searchWidthCurrent: min(100vw - (100vw/3 * 2), $searchWidthMax);
 
 .loading {
   .loading-icon {
-    animation: spinner 0.5s linear infinite;
+    animation: spinner 1s linear infinite;
   }
 }
 

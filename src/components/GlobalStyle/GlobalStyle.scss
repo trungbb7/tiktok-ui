@@ -5,6 +5,7 @@
   --primary-color: #ff2c55;
   --white-color: #fff;
   --black-color: #000;
+  --text-color: rgba(22, 24, 35, 1);
 
   --headerHeight: 60px;
 }
@@ -56,6 +57,7 @@
 
 html {
   font-size: 62.5%;
+  color: (--text-color);
 }
 
 body {
@@ -97,6 +99,38 @@ a {
     transform: translateX(-50%);
     border: 8px solid;
     border-color: transparent transparent rgba(84, 84, 84, 0.92);
+    z-index: 999;
+  }
+}
+
+.tippy-box[data-theme~='white'] {
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 0.03px;
+  width: fit-content;
+  max-width: 200px !important;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.08);
+  transform: translateX(-8px);
+  background-color: var(--white-color);
+  color: var(--text-color);
+  padding: 15px 16px 20px;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 8px;
+    border: 8px solid;
+    border-color: var(--white-color) transparent transparent;
     z-index: 999;
   }
 }

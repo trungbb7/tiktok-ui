@@ -1,9 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './SearchResultItem.module.scss';
-import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
-import { UpIcon, FireIcon, DotIcon, MiniSearchIcon } from '~/assets/Icons';
+import { UpIcon, FireIcon, DotIcon, MiniSearchIcon, CheckedIcon } from '~/assets/Icons';
 import Img from '~/components/Img';
 
 const cx = classNames.bind(styles);
@@ -31,7 +29,7 @@ function SearchResultItem(props) {
             <div className={cx('userNameWrapper')}>
               <h4 className={cx('userName')}>{props.userName}</h4>
               {props.isVerified ? (
-                <FontAwesomeIcon className={cx('check')} icon={faCircleCheck} />
+                <CheckedIcon className={cx('check')} width="14" height="14" viewBox="0 0 48 48" />
               ) : null}
             </div>
             <p className={cx('name')}>{props.name}</p>
@@ -56,6 +54,11 @@ function SearchResultItem(props) {
       </div>
     );
   }
+  return (
+    <div tabIndex="0" className={cx('more-wrapper')}>
+      <span className={cx('more-title')}>{props.content}</span>
+    </div>
+  );
 }
 
 export default SearchResultItem;

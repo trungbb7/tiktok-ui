@@ -1,0 +1,47 @@
+.wrapper {
+  // position: relative;
+  width: 240px;
+}
+
+.hook {
+  position: relative;
+  width: inherit;
+}
+
+.wrapper-for-scrollbar {
+  position: fixed;
+  top: 60px;
+  width: 240px;
+  width: 240px;
+  overflow-y: overlay;
+  max-height: 100vh;
+  overscroll-behavior: contain;
+  background-color: transparent;
+  z-index: 10;
+  transition: background 0.4s linear;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    background-color: var(--white-color);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: inherit;
+  }
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.06);
+  }
+}
+
+// .wrapper {
+//   width: 100%;
+//   height: inherit;
+//   padding-bottom: 40px;
+//   background-color: var(--white-color);
+// }
+
+.content {
+  background-color: var(--white-color);
+  padding: 20px 0 26px 8px;
+}

@@ -1,7 +1,9 @@
 const routesConfig = {
   home: '/',
   following: '/following',
-  upload: '/upload'
+  upload: '/upload',
+  explore: '/explore',
+  live: '/live'
 };
 
 export default routesConfig;

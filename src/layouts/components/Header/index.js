@@ -56,7 +56,7 @@ function Header() {
                   <Img
                     alt="avatar user"
                     className={cx('more-menu-icon')}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/eca1df09cea0dc214ddd4698d0064c83~c5_300x300.webp?x-expires=1688785200&x-signature=19RPJqLvd9lNi4NzNEFSnONKRpk%3D"
+                    src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/eca1df09cea0dc214ddd4698d0064c83~c5_720x720.jpeg?x-expires=1689991200&x-signature=qKvYS4CObTFyD28%2F1mNUg90XVWg%3D"
                     // srcFallBack="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/3dc715b5be60570e85def75117fc492a~c5_100x100.jpeg?x-expires=1689332400&x-signature=qg1xBcvIzuKp9ki2KwNgITm%2BvUw%3D"
                   />
                 </div>

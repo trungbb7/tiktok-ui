@@ -1,0 +1,27 @@
+.slider {
+  height: 2px;
+  height: 2px;
+}
+
+input[type='range'] {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 200px;
+  height: 100%;
+  background-color: transparent;
+}
+
+input[type='range']::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: red;
+}
